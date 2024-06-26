@@ -102,7 +102,7 @@ export const AddOrderForm = ({ foodArray }: Props) => {
                                         <Controller
                                             control={control}
                                             name={`items.${index}.name`}
-                                            render={({ field }) => (
+                                            render={() => (
                                                 <ComboBox
                                                     items={foodArray}
                                                     onSelect={(selectedItem) => handleSelect(index, selectedItem)}
