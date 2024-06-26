@@ -19,6 +19,10 @@ app.use("/order", orderRoute)
 app.use("/payment", paymentRoute)
 app.use("/expense", expenseRoute)
 
+app.get("/health", (req, res) => {
+    res.json({ message: "Health ok!"})
+})
+
 mongoose.connect(db_url as string).then(() => {
     console.log("Database connected")
 })
