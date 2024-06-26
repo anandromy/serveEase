@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
 import { useNavigate } from "react-router-dom"
+import { api_base_url } from "@/lib/utils"
 
 const formSchema = z.object({
     name: z.string().min(1, {
@@ -23,7 +24,7 @@ export const AddFoodItem = () => {
     })
 
     const onSubmit = handleSubmit(async (data) => {
-        await fetch("http://localhost:8000/food/addFood", {
+        await fetch(`${api_base_url}/food/addFood`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
